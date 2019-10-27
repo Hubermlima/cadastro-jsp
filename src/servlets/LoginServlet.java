@@ -81,8 +81,10 @@ public class LoginServlet extends HttpServlet {
 	private void confirmUserByEmail() {
 
 		// Foi verificado que o Avast estava interferindo o envio do e-mail
-		SendMailServiceInject sendEmailServiceInject = new SendMailServiceInject(new SendMailServiceGmail("huber.produtos@gmail.com", "1ATL389GUH", "cerrealistaportela@gmail.com", "Mail from java", "Hi!"));
-		sendEmailServiceInject.getSendMailService().send();
+		
+		SendMailServiceInject sender = new SendMailServiceInject("gmail", "huber.produtos@gmail.com", "1ATL389GUH", "cerealistaportela@gmail.com", "Mail from java", "Hi!");
+		sender.sendMail();
+		
 		
 	} 
 

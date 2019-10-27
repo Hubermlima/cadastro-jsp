@@ -22,6 +22,8 @@ public class SendMailServiceGmail implements SendMailService {
 	String subject;
 	String body;
 
+	public SendMailServiceGmail() {}
+	
 	public SendMailServiceGmail(String from, String password, String to, String subject, String body) {
 		super();
 		this.from = from;
@@ -39,12 +41,13 @@ public class SendMailServiceGmail implements SendMailService {
 	        props.put("mail.host", "smtp.gmail.com");
 	        props.put("mail.smtp.auth", "true");
 	        props.put("mail.smtp.starttls.enable", "true");
-	       // props.put("mail.debug", "true");
+	        //props.put("mail.debug", "true");
 	        props.put("mail.smtp.port", "465"); // Porta
 			props.put("mail.smtp.socketFactory.port", "465"); // Especifica a porta a ser conectada pelo socket
 			props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
 			props.put("mail.smtp.socketFactory.fallback", "false");
-	        //classe anonima que realiza a autenticacao
+	        
+			//classe anonima que realiza a autenticacao
 	        //do usuario no servidor de email.
 	        Authenticator auth = new Authenticator() {
 	            public PasswordAuthentication getPasswordAuthentication() {
@@ -55,7 +58,7 @@ public class SendMailServiceGmail implements SendMailService {
 	        // Cria a sessao passando as propriedades e a autenticacao
 	        Session session = Session.getDefaultInstance(props, auth);
 	        // Gera um log no console referente ao processo de envio
-	        //session.setDebug(true);
+	        // session.setDebug(true);
 	        
 	     // compose message
 			try {
