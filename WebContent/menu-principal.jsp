@@ -66,6 +66,8 @@
 						clientes</a>	 
 					
 				</div></li>
+				
+			<li class="nav-item"><a class="nav-link" href="LoginServlet?deslogar=true">Sair</a></li>
 		</ul>
 	</nav>
 
